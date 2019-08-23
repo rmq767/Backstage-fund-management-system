@@ -74,6 +74,7 @@ import jwt_decode from 'jwt-decode';
                 // token存储到vuex中
                 this.$store.dispatch('setAuthenticated', !this.isEmpty(decode))
                 this.$store.dispatch('setUser', decode)
+                // 这里存储的东西一刷新就会掉，所以要在App.vue中也存储一遍
 
                 // 登录成功，页面跳转到登录页面
                 this.$router.push('/index')

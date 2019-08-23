@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const bcrypt = require('bcrypt')
-const gravatar = require('gravatar')
-const jwt = require('jsonwebtoken')
-const passport = require('passport')
+const bcrypt = require('bcrypt')//加密方式
+const gravatar = require('gravatar')//头像
+const jwt = require('jsonwebtoken')//生成token
+const passport = require('passport')//验证token
 const User = require('../../../models/User')
 
 // GET api/users/test
@@ -39,7 +39,7 @@ router.post('/register', (req, res) => {
                 bcrypt.genSalt(10, function(err, salt) {
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if (err) throw err
-                        newUser.password = hash
+                        newUser.password = hash//加密后的密码赋给密码
                         newUser.save()
                             .then(user => res.json(user))
                             .catch(err => console.log(err))

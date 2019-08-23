@@ -17,7 +17,7 @@ function endLoading() {
     loading.close()
 }
 
-axios.defaults.baseURL = 'http://localhost:3000/api'
+axios.defaults.baseURL = 'http://localhost:3000/api'//默认请求地址
 
 //请求拦截设置统一header
 axios.interceptors.request.use(
